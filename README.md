@@ -1,6 +1,4 @@
 
----
-
 Download the plugin from the following address:
 [https://github.com/erikzimmermann/TradeSystem](https://github.com/erikzimmermann/TradeSystem)
 
@@ -19,7 +17,7 @@ ozaii:
       Password: "password"
 ```
 
-After that, go to the `PluginDependencies.java` file and paste the following code right below the Vault check:
+After that, go to `LayoutManager.java` and paste the following code just below the Vault check:
 
 ```java
 if (PluginDependencies.isEnabled(LeaderOSDependency.class)) {
@@ -41,4 +39,13 @@ if (PluginDependencies.isEnabled(LeaderOSDependency.class)) {
 
 }
 ```
+
+Then, go to `PluginDependencies.java` and add the following line under the `private static final PluginDependency[] EXTERNALS = {` array:
+
+```java
+new PlaceholderDependency(), new EssentialsDependency(), new TokenManagerDependency(), new VaultDependency(), new PlayerPointsDependency(), new GriefDefenderDependency(),
+new MMOItemsDependency(), new WorldGuardDependency(), new LeaderOSDependency()
+```
+
+This will integrate the LeaderOS dependency as part of the external plugin dependencies.
 
